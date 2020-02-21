@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:irpc="http://www.gottaboy.com/schema/irpc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.gottaboy.com/schema/irpc http://www.gottaboy.com/schema/irpc/irpc.xsd">
+
+	<!-- 应用 -->
+	<irpc:application name="rpc_server" />
+	
+	<!-- 服务端 -->
+	<irpc:server port="9527" />
+	
+	<!-- 注册中心 -->
+	<irpc:register type="zookeeper" ip="192.168.0.41" port="2181" />
+	
+	<!-- 提供服务 -->
+	<irpc:service id="userService" name="com.gottaboy.irpc.service.UserService"
+		impl="com.gottaboy.irpc.service.UserServiceImpl" version="1.0" />
+	
+</beans>
